@@ -161,8 +161,8 @@ sup, sub {
 	position: relative;
 	vertical-align: baseline;
 }
-sub { top: -6px }
-sup { bottom: -3px; }
+sup { top: -.6em; }
+sub { bottom: -.2em; }
 small {
 	font-size: 80%;
 	line-height: 80%;
@@ -230,6 +230,7 @@ del {
 fieldset {
 	border: 1px solid #ddd;
 	margin: 0 0 @baseline; padding: @baseline;
+	border-radius: 3px;
 }
 .alignleft {
 	float: left;
@@ -253,11 +254,12 @@ fieldset {
 	text-align: inherit;
 }
 .wp-caption-text, .wp-caption-dd {
-	color: #686868;
+	color: inherit;
 	font-size: 13px;
 	font-style: italic;
 	line-height: 1.6153846154;
 	padding-top: @baseline / 2;
+	opacity: .6;
 }
 .mce-content-body .wpview-wrap {
 	margin-bottom: @baseline;
