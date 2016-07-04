@@ -1,0 +1,350 @@
+// ------ Normalize.css ------
+
+@import '../node_modules/normalize.css/normalize.css';
+
+// ------ WordPress ------
+
+// Fixed menu + Admin bar fix
+.admin-bar header nav {
+	top: 32px;
+}
+@media screen and (max-width:782px) {
+	.admin-bar header nav {
+		top: 46px
+	}
+}
+// WP
+.entry-content img {
+	margin: 0 0 @baseline 0;
+}
+.alignleft, img.alignleft {
+	display: inline;
+	float: left;
+	margin-right: @baseline;
+}
+.alignright, img.alignright {
+	display: inline;
+	float: right;
+	margin-left: @baseline;
+}
+.aligncenter, img.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.wp-caption {
+	text-align: center;
+	margin-bottom: @baseline;
+	img {
+		border: 0 none;
+		margin: 0; padding: 0;
+	}
+	p.wp-caption-text {
+		margin: 0
+	}
+}
+.wp-smiley {
+	max-height: 1em;
+	margin: 0 !important;
+}
+.gallery dl {
+	margin: 0;
+}
+.gallery-caption {
+	margin: -@baseline 0 0 0;
+}
+blockquote.left {
+	float: left;
+	margin-left: 0;
+	margin-right: @baseline;
+	text-align: right;
+	width: 33%;
+}
+blockquote.right {
+	float: right;
+	margin-left: @baseline;
+	margin-right: 0;
+	text-align: left;
+	width: 33%;
+}
+b, strong {
+	font-weight: 700;
+}
+dfn, cite, em, i {
+	font-style: italic;
+}
+blockquote {
+	border-left: 4px solid currentColor;
+	font-size: 19px;
+	font-style: italic;
+	line-height: 1.4736842105;
+	margin-bottom: @baseline;
+	padding: 0 0 0 @baseline;
+}
+blockquote:not(.alignleft):not(.alignright) {
+	margin-left: -@baseline;
+}
+blockquote blockquote:not(.alignleft):not(.alignright) {
+	margin-left: 0;
+}
+blockquote:before, blockquote:after {
+	content: "";
+	display: table;
+}
+blockquote:after {
+	clear: both;
+}
+blockquote >:last-child {
+	margin-bottom: 0;
+}
+blockquote cite, blockquote small {
+	color: #1a1a1a;
+	font-size: 16px;
+	line-height: @baseline;
+}
+blockquote em, blockquote i, blockquote cite {
+	font-style: normal;
+}
+blockquote strong, blockquote b {
+	font-weight: 400;
+}
+blockquote.alignleft, blockquote.alignright {
+	border: 0 solid #1a1a1a;
+	border-top-width: 4px;
+	padding: 18px 0 0;
+	width: -webkit-calc(50% - 14px);
+	width: calc(50% - 14px);
+}
+address {
+	font-style: italic;
+	margin: 0 0 @baseline;
+}
+code, kbd, tt, var, samp, pre {
+	font-family: Inconsolata, monospace;
+}
+pre {
+	border: 1px solid #d1d1d1;
+	font-size: @basefont;
+	line-height: @basefont * 1.5;
+	margin: 0 0 @baseline;
+	max-width: 100%;
+	padding: @baseline;
+	border-radius: 3px;
+	overflow: auto;
+	// white-space: pre;
+	// white-space: pre-wrap;
+	// word-wrap: break-word;
+}
+code {
+	border: 1px solid fade(#dcd, 60%);
+	background-color: fade(#dcd, 20%);
+	padding: 2px 4px;
+	border-radius: 3px;
+}
+abbr[title] {
+	border-bottom: 1px dotted #d1d1d1;
+	cursor: help;
+}
+mark, ins {
+	border: 1px solid fade(#007acc, 90%);
+	background-color: fade(#007acc, 75%);
+	color: #fff;
+	padding: 2px 4px;
+	text-decoration: none;
+	border-radius: 3px;
+}
+sup, sub {
+	font-size: 75%;
+	height: 0;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sub { top: -6px }
+sup { bottom: -3px; }
+small {
+	font-size: 80%;
+	line-height: 80%;
+}
+big {
+	font-size: 125%;
+}
+hr {
+	background-color: #d1d1d1;
+	border: 0;
+	height: 1px;
+	margin-bottom: @baseline;
+}
+dl {
+	margin: 0 0 @baseline;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin: 0 0 @baseline;
+}
+table, th, td, .mce-item-table, .mce-item-table th, .mce-item-table td {
+	border: 1px solid #d1d1d1;
+}
+table a {
+	color: #007acc;
+}
+table, .mce-item-table {
+	border-collapse: separate;
+	border-spacing: 0;
+	border-width: 1px 0 0 1px;
+	margin: 0 0 @baseline;
+	width: 100%;
+}
+table th, .mce-item-table th, table caption {
+	border-width: 0 1px 1px 0;
+	font-size: 16px;
+	font-weight: 700;
+	padding: @baseline / 2;
+	text-align: left;
+	vertical-align: baseline;
+}
+table td, .mce-item-table td {
+	border-width: 0 1px 1px 0;
+	font-size: 16px;
+	padding: @baseline / 2;
+	vertical-align: baseline;
+}
+img {
+	border: 0;
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+}
+a img {
+	display: block;
+}
+figure {
+	margin: 0;
+}
+del {
+	opacity: 0.8;
+}
+fieldset {
+	border: 1px solid #ddd;
+	margin: 0 0 @baseline; padding: @baseline;
+}
+.alignleft {
+	float: left;
+	margin: 0 @baseline @baseline 0;
+}
+.alignright {
+	float: right;
+	margin: 0 0 @baseline @baseline;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto @baseline;
+}
+.wp-caption {
+	background: transparent;
+	border: none;
+	margin-bottom: @baseline;
+	max-width: 100%;
+	padding: 0;
+	text-align: inherit;
+}
+.wp-caption-text, .wp-caption-dd {
+	color: #686868;
+	font-size: 13px;
+	font-style: italic;
+	line-height: 1.6153846154;
+	padding-top: @baseline / 2;
+}
+.mce-content-body .wpview-wrap {
+	margin-bottom: @baseline;
+}
+.gallery {
+	margin: 0 -1.1666667%;
+	padding: 0;
+}
+.gallery .gallery-item {
+	display: inline-block;
+	max-width: 33.33%;
+	padding: 0 1.1400652% 2.2801304%;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+.gallery-columns-1 .gallery-item {
+	max-width: 100%;
+}
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+.gallery .gallery-caption {
+	font-size: 13px;
+	margin: 0;
+}
+.gallery-columns-6 .gallery-caption, .gallery-columns-7 .gallery-caption, .gallery-columns-8 .gallery-caption, .gallery-columns-9 .gallery-caption {
+	display: none;
+}
+.wp-audio-shortcode a, .wp-playlist a {
+	box-shadow: none;
+}
+.mce-content-body .wp-audio-playlist {
+	margin: 0;
+	padding-bottom: 0;
+}
+.mce-content-body .wp-playlist-tracks {
+	margin-top: 0;
+}
+.mce-content-body .wp-playlist-item {
+	padding: 10px 0;
+}
+.mce-content-body .wp-playlist-item-length {
+	top: 10px;
+}
+.rtl blockquote {
+	border: 0 solid #1a1a1a;
+	border-right-width: 4px;
+}
+.rtl blockquote.alignleft, .rtl blockquote.alignright {
+	border: 0 solid #1a1a1a;
+	border-top-width: 4px;
+}
+.rtl blockquote:not(.alignleft):not(.alignright) {
+	margin-right: -@baseline;
+	padding: 0 24px 0 0;
+}
+.rtl blockquote blockquote:not(.alignleft):not(.alignright) {
+	margin-right: 0;
+	margin-left: auto;
+}
+.rtl li > ul, .rtl blockquote > ul {
+	margin-right: 20px;
+	margin-left: auto;
+}
+.rtl li > ol, .rtl blockquote > ol {
+	margin-right: 24px;
+	margin-left: auto;
+}
+.rtl table th, .rtl .mce-item-table th, .rtl table caption {
+	text-align: right;
+}

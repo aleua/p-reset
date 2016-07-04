@@ -1,0 +1,135 @@
+// ------ Imports ------
+
+@import 'p-reset/grid.less';
+@import 'p-reset/reset.less';
+
+// ------ Vars ------
+
+// Colors
+@white: #fff9f9;
+@gray: #888;
+@black: #222020;
+
+@accent: @lightblue;
+@compl: @lightbrown;
+
+@darkblue: #5f8791;
+@lightblue: #5f8791;
+
+@lightbrown: #d6b28d;
+
+// Sizes
+@basefont: 14px;
+@baseline: @basefont * 1.5;
+
+@x2baseline: @baseline * 2;
+@x3baseline: @baseline * 3;
+@x4baseline: @baseline * 4;
+
+@navheight: @x3baseline;
+
+@pagePadding: @baseline * 4;
+@pagePadding--tablet: @baseline;
+@pagePadding--phone: @baseline / 2;
+
+// Media Queries
+@tablet: ~'(max-width: 900px)';
+@phone: ~'(max-width: 600px)';
+
+// Others
+@cubic-bezier: cubic-bezier(.5,0,0,1);
+
+// ------ Mixins ------
+
+.pagePadding{
+	padding-left: @pagePadding; padding-right: @pagePadding;
+	@media @tablet{ padding-left: @pagePadding--tablet; padding-right: @pagePadding--tablet; }
+	@media @phone{ padding-left: @pagePadding--phone; padding-right: @pagePadding--phone; }
+	box-sizing: border-box;
+}
+.pageMargin{
+	margin-left: @pagePadding; margin-right: @pagePadding;
+	@media @tablet{ margin-left: @pagePadding--tablet; margin-right: @pagePadding--tablet; }
+	@media @phone{ margin-left: @pagePadding--phone; margin-right: @pagePadding--phone; }
+}
+
+.shadow(@color: @gray; @size: 1; @op: .8; @y: 1;){
+	@sc1: shade(saturate(@color, 60%), 40%);
+	@shadowColor: rgba(red(@sc1), green(@sc1), blue(@sc1), @op);
+	box-shadow: 0 ((@baseline * (.5 * @size)) * @y) (@baseline * @size) -((@baseline / 2) * @size) @shadowColor;
+}
+
+.grid(10);
+.grid(11);
+.grid(12);
+
+// ------ Reset ------
+
+html, body{
+	font-family: sans-serif;
+	margin: 0; padding: 0;
+}
+
+header, main, footer, section, article, div{ .clearfix; }
+
+a, a:link, a:visited, a:focus, a:hover, a:active{
+	color: inherit;
+	text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+	margin: 0; padding: 0;
+	margin-bottom: @baseline;
+}
+h1{ font-size: @basefont * 2.00; }
+h2{ font-size: @basefont * 1.75; }
+h3{ font-size: @basefont * 1.50; }
+h4{ font-size: @basefont * 1.25; }
+h5{ font-size: @basefont * 1.00; }
+h6{ font-size: @basefont / 1.25; }
+
+h1, h3, h5{
+	// font-family: sans-serif;
+}
+h2, h4, h6{
+	// font-family: serif;
+}
+
+ul, ol{
+	margin: 0; padding: 0;
+	margin-bottom: @baseline;
+	list-style: none;
+	list-style-type: none;
+	li{
+		list-style: none;
+		list-style-type: none;
+		line-height: @baseline * 1.25;
+		ul, ol{
+			padding-left: @baseline * 1.5;
+			margin: 0;
+		}
+	}
+}
+
+button, input, textarea{
+	border: none;
+	font-size: @basefont;
+	line-height: @baseline;
+	margin: 0; padding: 0;
+}
+
+.button{
+	&[disabled], &[disabled="disabled"], &.disabled{
+	}
+}
+button, input[type="submit"], input[type="button"]{ .button; }
+
+.input{
+	&[disabled], &[disabled="disabled"], &.disabled{
+	}
+}
+input, textarea{ .input; }
+
+.talignleft{ text-align: left; }
+.taligncenter{ text-align: center; }
+.talignright{ text-align: right; }

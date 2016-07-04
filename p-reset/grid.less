@@ -1,0 +1,37 @@
+.gen-cols(@prefix; @cols; @i: 1;) when (@i <= @cols){
+	> .col-@{prefix}-@{i}{
+		float: left;
+		width: (100% / @cols) * @i;
+		box-sizing: border-box;
+	}
+	.gen-cols(@prefix, @cols, @i + 1);
+}
+.grid-default(@cols: @cols; @i: 1;) when (@i <= @cols){
+	> .col-@{i}{
+		float: left;
+		width: (100% / @cols) * @i;
+		box-sizing: border-box;
+	}
+	.grid-default(@cols, @i + 1);
+}
+
+.grid-responsive(@device; @prefix; @cols){
+	@media @device{ .gen-cols(@prefix, @cols); }
+}
+
+.clearfix{
+	&:before, &:after{
+		content: ' ';
+		display: table;
+	}
+	&:after{ clear: both; }
+}
+
+.grid(@cols){
+	.row, .row-@{cols}, .row@{cols}{
+		.clearfix;
+		.grid-default(@cols);
+		.grid-responsive(@tablet, sm, @cols);
+		.grid-responsive(@phone, xs, @cols);
+	}
+}
