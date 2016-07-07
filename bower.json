@@ -1,0 +1,17 @@
+{
+  "name": "p-reset",
+  "homepage": "https://github.com/p-realinho/p-reset",
+  "authors": [
+    "Pedro R <realinho.pedro@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
