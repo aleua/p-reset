@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
 	<link rel="stylesheet" type="text/less" href="../p-reset.less">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js"></script>
+	<script src="/cdn/less.min.js"></script>
 </head>
 <body>
 	<main class="pagePadding">
@@ -217,18 +217,21 @@
 			<p>This allows you to denote
 				<var>variables</var>.</p>
 		</div>
-	</main>
-	<main>
-		<section class="works">
-			<article class="row-12">
-				<div class="info">
-					<span class="title"></span>
-					<p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum nesciunt ipsam quos dolorum similique natus placeat vero voluptatibus minus amet odio voluptates, omnis minima, dolor cum assumenda deserunt. Modi, reiciendis?</p>
-				</div>
-				<img src="https://source.unsplash.com/random">
-			</article>
+		<section>
+			<p><br></p>
+			<button style="width: 100px;" class="animation-test hover">ease-in-out</button><br><br>
+			<button style="width: 100px;" class="animation-test1 hover">cb-material</button><br><br>
+			<button style="width: 100px;" class="animation-test2 hover">cb-shoot</button><p><br></p>
+			<style>
+				.animation-test{ animation: test 2s ease-in-out infinite; }
+				.animation-test1{ animation: test 2s cubic-bezier(.5,0,0,1) infinite; }
+				.animation-test2{ animation: test 6s cubic-bezier(0,1,0,1) infinite; }
+				@keyframes test{
+					from{ transform: translateX(0); }
+					to{ transform: translateX(75vw); }
+				}
+			</style>
 		</section>
 	</main>
-	<footer></footer>
 </body>
 </html>

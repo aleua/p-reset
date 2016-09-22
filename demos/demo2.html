@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
 	<link rel="stylesheet" type="text/less" href="../p-reset.less">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js"></script>
+	<script src="/cdn/less.min.js"></script>
 </head>
 <body class="pagePadding">
 	<!-- Sample Content to Plugin to Template -->
@@ -117,7 +117,12 @@
 			</p>
 
 
-			<p><input class="button" type="reset" value="Clear" /> <input class="button" type="submit" value="Submit" />
+			<p>
+				<input type="reset" value="Clear" />
+				<input class="button" type="submit" value="Submit" />
+			<p>
+				<input class="button disabled" type="reset" value="Clear"/>
+				<input type="submit" value="Submit" disabled/>
 			</p>
 
 

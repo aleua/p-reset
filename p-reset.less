@@ -1,18 +1,23 @@
-// ------ Imports ------
+/**
+ * Imports
+ */
 
 @import 'https://fonts.googleapis.com/css?family=Droid+Serif|Lato';
 
 @import 'p-reset/grid.less';
 @import 'p-reset/reset.less';
 
-// ------ Vars ------
+/**
+ * Vars
+ */
+
 // Fonts
 @titlefont: 'Lato', sans-serif;
 @bodyfont: 'Droid Serif', serif;
 
 // Colors
 @white: #fdfcfc;
-@gray: #888080;
+@gray: shade(@white, 10%);
 @black: #131010;
 
 @accent: @lightblue;
@@ -34,18 +39,23 @@
 
 @navheight: @x3baseline;
 
-@pagePadding: @baseline * 4;
+@pagePadding: @baseline * 6;
 @pagePadding--tablet: @baseline;
 @pagePadding--phone: @baseline / 2;
 
 // Media Queries
+@laptop: ~'(min-width: 900px)';
 @tablet: ~'(max-width: 900px)';
 @phone: ~'(max-width: 600px)';
 
 // Others
 @cubic-bezier: cubic-bezier(.5,0,0,1);
+@cb-material: cubic-bezier(.5,0,0,1);
+@cb-shoot: cubic-bezier(0,1,0,1);
 
-// ------ Mixins ------
+/**
+ * Mixins
+ */
 
 .pagePadding{
 	padding-left: @pagePadding; padding-right: @pagePadding;
@@ -62,17 +72,19 @@
 .shadow(@color: @gray; @size: 1; @op: .8; @y: 1;){
 	@sc1: shade(saturate(@color, 60%), 40%);
 	@shadowColor: rgba(red(@sc1), green(@sc1), blue(@sc1), @op);
-	box-shadow: 0 ((@baseline * (.5 * @size)) * @y) (@baseline * @size) -((@baseline / 2) * @size) @shadowColor;
+	box-shadow+: 0 ((@baseline * (.5 * @size)) * @y) (@baseline * @size) -((@baseline / 2) * @size) @shadowColor;
 }
 
-.grid(10);
-.grid(10, 4);
-.grid(11);
-.grid(11, 4);
+// .grid(10);
+// .grid(10, 4);
+// .grid(11);
+// .grid(11, 4);
 .grid(12);
 .grid(12, 4);
 
-// ------ Reset ------
+/**
+ * Reset
+ */
 
 html, body{
 	background: @white;
@@ -85,20 +97,24 @@ html, body{
 
 header, main, footer, section, article, div{ .clearfix; }
 
+::selection{
+	background: @accent;
+	color: @white;
+}
+
 a, a:link, a:visited, a:focus, a:hover, a:active{
 	color: inherit;
 	text-decoration: none;
 }
 
+// Headers
 h1, h2, h3, h4, h5, h6, p{
 	margin: 0; padding: 0;
 	margin-bottom: @baseline;
 }
-
-// Headers
 h1, h2, h3, h4, h5, h6{ margin-top: @baseline / 2; }
-h1{ font-size: @basefont * 2.25; font-weight: 300; line-height: @baseline * 1.5;}
-h2{ font-size: @basefont * 1.75; font-weight: 300; line-height: @baseline * 1.25;}
+h1{ font-size: @basefont * 2.50; font-weight: 300; line-height: @baseline * 1.5;}
+h2{ font-size: @basefont * 2.25; font-weight: 300; line-height: @baseline * 1.25;}
 h3{ font-size: @basefont * 1.50; font-weight: 400;}
 h4{ font-size: @basefont * 1.25; font-weight: 400;}
 h5{ font-size: @basefont * 1.00; font-weight: 700;}
@@ -109,7 +125,8 @@ h1, h3, h5{
 h2, h4, h6{
 	font-family: @bodyfont;
 }
-//
+
+// Lists
 ul, ol{
 	margin: 0; padding: 0;
 	margin-bottom: @baseline;
@@ -126,31 +143,120 @@ ul, ol{
 	}
 }
 
-button, input, textarea{
-	border: none;
+// Buttons / Inputs
+button, input, textarea, select{
+	border: 1px solid fade(@accent, 75%);
+	background: @white;
+	color: @accent;
 	font-family: inherit;
 	font-size: @basefont;
+	line-height: @baseline * 1.5;
 	margin: 0; padding: 0;
+	padding-left: @baseline / 2; padding-right: @baseline / 2;
+	border-radius: 3px;
+	.shadow(@accent, 1, .2);
 }
-
+textarea{
+	line-height: @baseline * 1.25;
+	padding-left: @baseline / 4; padding-right: @baseline / 4;
+}
 .button{
-	line-height: @baseline * 1.5;
-	padding-left: @baseline / 2; padding-right: @baseline / 2;
-	&[disabled], &[disabled="disabled"], &.disabled{
-	}
+	cursor: pointer;
+	transition: background .3s, color .3s;
+	&:hover, &.hover{ background: @accent; color: @white; }
 }
-button, input[type="submit"], input[type="button"]{ .button; }
-
-.input{
-	padding-left: @baseline / 2; padding-right: @baseline / 2;
-	&[disabled], &[disabled="disabled"], &.disabled{
-	}
+button, input[type="submit"], input[type="button"], input[type="reset"]{
+	.button;
 }
+.input{}
 input:not([type="submit"]):not([type="button"]){
-	line-height: @baseline * 1.5;
 	.input;
 }
+select{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	height: @baseline * 1.5;
+	padding-left: @baseline / 4; padding-right: @baseline / 4;
+	cursor: pointer;
+	.input;
+	option{}
+}
+select::ms-expand{ display: none; }
 
+.button, .input{
+	&[disabled], &[disabled="disabled"], &.disabled{
+		border: 1px solid @gray;
+		background: @white;
+		color: @gray;
+		cursor: default;
+		box-shadow: none;
+	}
+}
+
+/**
+ * Classes
+ */
+
+// Text-Aligns
 .talignleft{ text-align: left; }
 .taligncenter{ text-align: center; }
 .talignright{ text-align: right; }
+
+// Margins / Paddings
+.noPadding, .no-padding{ padding: 0; }
+.noMargin, .no-margin{ margin: 0; }
+
+.baselinePaddingSides, .baseline-padding-sides, .padding-sides{ padding-left: @baseline; padding-right: @baseline; }
+.baselinePaddingEnds, .baseline-padding-ends, .padding-ends{ padding-top: @baseline; padding-bottom: @baseline; }
+
+// Media Hides
+.laptop-hide{
+	@media @laptop{ display: none; }
+}
+.tablet-hide{
+	@media @tablet{ display: none; }
+}
+.phone-hide{
+	@media @phone{ display: none; }
+}
+
+// Widths
+.full-width, .width-100{ width: 100%; }
+.half-width, .width-50{ width: 50%; }
+
+// Slick
+.slick-current, .slick-active{
+}
+.slick-prev, .slick-next, .slick-prev:before, .slick-next:before{
+	font-size: @baseline * 2;
+	z-index: 10;
+}
+.slick-prev{ left:  @baseline / 2; }
+.slick-next{ right: @baseline * 1.5; }
+.slick-prev, .slick-next{
+	&:before{
+	}
+}
+.slick-dots{
+	bottom: @baseline / 2;
+	li button:before{
+		color: fade(@gray, 75%);
+		font-size: @baseline / 1.2;
+		opacity: 1;
+		transition: color .3s;
+	}
+	li.slick-active button:before{
+		color: @white;
+	}
+}
+
+// Nav Menu - WIP
+body > header nav{
+	ul li{
+		display: inline-block;
+		a{
+			padding-left: @baseline / 2; padding-right: @baseline / 2;
+		}
+	}
+}
