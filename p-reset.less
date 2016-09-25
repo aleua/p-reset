@@ -26,10 +26,6 @@
 @accentShadow: shade(@accent, 14%);
 @compl: spin(@accent, 30%);
 
-@darkblue: #5f8791;
-@lightblue: #5f8791;
-@lightbrown: #d6b28d;
-
 // Material
 @amber: #ffc107;
 @blue: #2196f3;
@@ -79,7 +75,7 @@
  * Mixins
  */
 
-.pagePadding, .page-madding{
+.pagePadding, .page-padding{
 	padding-left: @pagePadding; padding-right: @pagePadding;
 	@media @tablet{ padding-left: @pagePadding--tablet; padding-right: @pagePadding--tablet; }
 	@media @phone{ padding-left: @pagePadding--phone; padding-right: @pagePadding--phone; }
@@ -96,7 +92,7 @@
 	@shadowColor: rgba(red(@sc1), green(@sc1), blue(@sc1), @op);
 	box-shadow+: 0 ((@baseline * (.5 * @size)) * @y) (@baseline * @size) -((@baseline / 2) * @size) @shadowColor;
 }
-.shadow{ .shadow(@accent, 2); }
+.shadow{ .shadow(@accent, 1.5, .6); }
 
 .grid(12);
 .grid(12, (@baseline / 4));
@@ -236,7 +232,7 @@ select{
 select::ms-expand{ display: none; }
 
 .button, .input{
-	&[disabled], &[disabled="disabled"], &.disabled{
+	&[disabled], &.disabled{
 		border: 1px solid @gray;
 		background: @white;
 		color: @gray;
