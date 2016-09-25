@@ -223,12 +223,13 @@
 			<button style="width: 100px;" class="animation-test1 hover">cb-material</button><br><br>
 			<button style="width: 100px;" class="animation-test2 hover">cb-shoot</button><p><br></p>
 			<style>
-				.animation-test{ animation: test 2s ease-in-out infinite; }
-				.animation-test1{ animation: test 2s cubic-bezier(.5,0,0,1) infinite; }
-				.animation-test2{ animation: test 6s cubic-bezier(0,1,0,1) infinite; }
+				.animation-test{ animation: test 4s ease-in-out infinite; }
+				.animation-test1{ animation: test 4s cubic-bezier(.5,0,0,1) infinite; }
+				.animation-test2{ animation: test 12s cubic-bezier(0,1,0,1) infinite; }
 				@keyframes test{
-					from{ transform: translateX(0); }
-					to{ transform: translateX(75vw); }
+					0%{ transform: translateX(0); }
+					50%{ transform: translateX(75vw); }
+					100%{ transform: translateX(0); }
 				}
 			</style>
 		</section>
