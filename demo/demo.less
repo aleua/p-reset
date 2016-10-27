@@ -1,0 +1,43 @@
+@import (reference) '../p-reset.less';
+
+section{
+	.page-padding;
+}
+
+// Colors
+.demo{
+	display: inline-block;
+	padding: @baseline;
+	border-radius: @x2baseline;
+	margin-right: @baseline;
+}
+.demo.yellow{ background: @yellow; }
+.demo.orange{ background: @orange; }
+.demo.red{ background: @red; }
+.demo.pink{ background: @pink; }
+.demo.purple{ background: @purple; }
+.demo.blue{ background: @blue; }
+.demo.lightblue{ background: @lightblue; }
+.demo.teal{ background: @teal; }
+.demo.green{ background: @green; }
+.demo.lightgreen{ background: @lightgreen; }
+.demo.bluegrey{ background: @bluegrey; }
+
+// Grid
+.gridDemo{
+	> div{
+		> div{
+			> div{
+				.padding-half;
+				.brad;
+				.bg-acc;
+				.color-white;
+				&:before{
+					content: 'Col';
+					text-align: center;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
