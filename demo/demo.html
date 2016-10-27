@@ -11,36 +11,74 @@
 	<link rel="stylesheet" href="demo.css">
 </head>
 <body>
+	<header>
+		<nav class="row-12">
+			<div class="logo col-6">
+				<a href="../index.html" class="font-title">(P)</a>
+			</div>
+			<div class="col-6 talignright">
+				<ul>
+					<li><a href="#">Demo</a></li>
+					<li><a href="#">Docs</a></li>
+					<li><a href="#">Downloads</a></li>
+					<li><a href="//github.com/p-realinho/p-reset"><i class="fa fa-github"></i></a></li>
+				</ul>
+			</div>
+		</nav>
+		<p><br></p>
+		<div class="row-12">
+			<div class="col-sm-12 col-8">
+				<h1 class="color-white">Give the web a (P)reset.</h1>
+			</div>
+			<div class="shadow padding taligncenter col-sm-12 col-4" style="background: rgba(255,255,255,.1);">
+				<br>
+				<code>$ npm install p-reset</code><br><br>
+				<code>$ bower install p-reset</code><br><p><br></p>
+				<a href="//github.com/p-realinho/p-reset"><i class="fa fa-github fa-3x"></i></a><br>
+			</div>
+		</div>
+	</header>
 	<main>
+		<p><br></p>
 		<section>
-			<h1>Colors</h1>
-			Accent<br>
-			Success<br>
-			Warning<br>
-			Error<br>
-				<div class="demo red"></div>
-				<div class="demo pink"></div>
-				<div class="demo purple"></div>
-				<div class="demo blue"></div>
-				<div class="demo lightblue"></div>
-				<div class="demo teal"></div>
-				<div class="demo green"></div>
-				<div class="demo lightgreen"></div>
-				<div class="demo yellow"></div>
-				<div class="demo orange"></div>
+			<h1>Colors</h1><br>
+			<div class="row-10">
+				<div class="col-2"><div class="demo white"></div> @white </div>
+				<div class="col-2"><div class="demo lightgray"></div> @lightgray </div>
+				<div class="col-2"><div class="demo gray"></div> @gray </div>
+				<div class="col-2"><div class="demo bluegray"></div> @bluegray </div>
+				<div class="col-2"><div class="demo black"></div> @black </div>
+			</div>
+			<br>
+			<div class="row-10">
+				<div class="col-2"><div class="demo red"></div>@red (@error)</div>
+				<div class="col-2"><div class="demo purple"></div>@purple</div>
+				<div class="col-2"><div class="demo lightblue"></div>@lightblue</div>
+				<div class="col-2"><div class="demo green"></div>@green</div>
+				<div class="col-2"><div class="demo yellow"></div>@yellow (@warn)</div>
+				<div class="col-2"><div class="demo pink"></div>@pink</div>
+				<div class="col-2"><div class="demo blue"></div>@blue</div>
+				<div class="col-2"><div class="demo teal"></div>@teal</div>
+				<div class="col-2"><div class="demo lightgreen"></div>@lightgreen (@success)</div>
+				<div class="col-2"><div class="demo orange"></div>@orange</div>
+			</div>
+			<p><br></p>
 		</section>
 		<section>
 			<h1>Buttons</h1>
 			<h2>Size</h2>
-			lg <br>
-			button <br>
-			sm <br>
+			<button>'button' Tag</button>
+			<a href="#" class="button">'a' Tag w/button class</a>
+			<input type="button" value="input">
+			<input type="submit">
+			<input type="reset">
+			<button disabled>'button' Tag</button>
 			<hr>
 			<h2>Color</h2>
 			acc <br>
-			succ <br>
-			warn <br>
-			err <br>
+			<button class="success">success</button>
+			<button class="warn">warn</button>
+			<button class="err">err</button><br>
 			border <br>
 			none <br>
 			<hr>

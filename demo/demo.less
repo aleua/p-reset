@@ -1,5 +1,7 @@
 @import (reference) '../p-reset.less';
 
+.grid(10);
+
 section{
 	.page-padding;
 }
@@ -7,10 +9,17 @@ section{
 // Colors
 .demo{
 	display: inline-block;
-	padding: @baseline;
+	line-height: @x2baseline;
+	padding: @baseline * 1.25;
+	vertical-align: middle;
 	border-radius: @x2baseline;
-	margin-right: @baseline;
+	margin: (@baseline / 1) 0;
+	margin-right: @baseline / 4;
 }
+.demo.black{ background: @black; }
+.demo.white{ background: @white; }
+.demo.lightgray{ background: @lightgray; }
+.demo.gray{ background: @gray; }
 .demo.yellow{ background: @yellow; }
 .demo.orange{ background: @orange; }
 .demo.red{ background: @red; }
@@ -21,7 +30,7 @@ section{
 .demo.teal{ background: @teal; }
 .demo.green{ background: @green; }
 .demo.lightgreen{ background: @lightgreen; }
-.demo.bluegrey{ background: @bluegrey; }
+.demo.bluegray{ background: @bluegray; }
 
 // Grid
 .gridDemo{
@@ -39,5 +48,20 @@ section{
 				}
 			}
 		}
+	}
+}
+
+
+// Nav Menu - WIP
+body > header{
+	padding-top: @navheight;
+	 nav{
+		background: @white;
+		color: @accent;
+		position: fixed;
+		top: 0; left: 0;
+		width: 100%;
+		.page-padding;
+		.shadow(@accent, 1.5, .1);
 	}
 }
