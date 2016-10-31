@@ -1,11 +1,11 @@
 /**
  * Imports
  */
-
 @import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700|Bree+Serif';
 
 @import 'p-reset/grid.less';
 @import 'p-reset/reset.less';
+
 
 /**
  * Vars
@@ -25,7 +25,7 @@
 @color: @black;
 
 // Colors
-@accent: @teal;
+@accent: @bluegray;
 @accentShadow: shade(@accent, 14%);
 @compl: spin(@accent, 30%);
 
@@ -70,7 +70,7 @@
 @cb-material: cubic-bezier(.5,0,0,1);
 @cb-shoot: cubic-bezier(0,1,0,1);
 
-@brad: @x2baseline;
+@brad: @baseline * 1.25;
 
 /**
  * Mixins
@@ -115,13 +115,6 @@ html, body{
 html{ height: 100%; }
 body{ min-height: 100%; }
 
-header{
-	background: svg-gradient(to bottom right, spin(lighten(@accent, 3%), 10%), spin(lighten(@accent, 12%), -20%)) no-repeat;
-	color: @white;
-	height: @baseline * 20;
-	.pagePadding;
-}
-
 header, main, footer, section, article, div{ .clearfix; }
 
 ::selection{
@@ -145,12 +138,12 @@ h1, h2, h3, h4, h5, h6{
 	color: @accent;
 	margin-top: @baseline / 2;
 }
-h1{ font-size: @basefont * 2.50; font-weight: 300; line-height: @baseline * 1.5;}
-h2{ font-size: @basefont * 2.25; font-weight: 300; line-height: @baseline * 1.25;}
-h3{ font-size: @basefont * 1.50; font-weight: 400;}
-h4{ font-size: @basefont * 1.25; font-weight: 400;}
-h5{ font-size: @basefont * 1.00; font-weight: 700;}
-h6{ font-size: @basefont / 1.25; font-weight: 700;}
+h1{ font-size: @basefont * 2.50; line-height: @baseline * 1.50; font-weight: 300;}
+h2{ font-size: @basefont * 2.25; line-height: @baseline * 1.25; font-weight: 300;}
+h3{ font-size: @basefont * 1.50; line-height: @baseline * 1.50; font-weight: 400;}
+h4{ font-size: @basefont * 1.25; line-height: @baseline * 1.25; font-weight: 400;}
+h5{ font-size: @basefont * 1.00; line-height: @baseline * 1.00; font-weight: 700;}
+h6{ font-size: @basefont / 1.25; line-height: @baseline / 1.25; font-weight: 700;}
 h1, h3, h5{ font-family: @titlefont; }
 h2, h4, h6{ font-family: @bodyfont; }
 
@@ -175,7 +168,7 @@ ul, ol{
 button, .button, .btn, input, .input,
 body a.button, a.btn, body a.input,
 textarea, select{
-	border: 1px solid fade(@accent, 75%);
+	border: 1px solid @accent;
 	background: @background;
 	color: @accent;
 	font-family: inherit;
@@ -189,23 +182,23 @@ textarea, select{
 	&.big{ font-size: @basefont * 1.25; font-weight: 300; line-height: @baseline * 2.25; }
 	// &.big{ border: none; font-size: @basefont * 9; line-height: @baseline * 3; text-align: right; overflow: hidden; }
 }
-textarea{
-	line-height: @baseline * 1.25;
-	padding-left: @baseline / 4; padding-right: @baseline / 4;
-	height: @baseline * 4.75;
-	border-radius: 3px;
-}
+
+// Buttons
 .button, .btn{
+	border-color: @accent;
+	background: @accent;
+	color: @white;
 	cursor: pointer;
 	padding-left: @baseline / 1.5; padding-right: @baseline / 1.5;
 	.shadow(@accent, .75, .2);
-	transition: background .3s, color .3s, box-shadow .6s;
+	transition: background .3s @cubic-bezier, color .3s @cubic-bezier, box-shadow .6s @cubic-bezier, border .3s @cubic-bezier;
 	&.big{
 		.shadow(@accent, 1.25, .6);
 	}
-	&:hover, &.hover, &.acc{
-		background: @accent;
-		color: @white;
+	&:hover, &.hover{
+		border-color: @white;
+		background: @white;
+		color: @accent;
 	}
 	&.no-shadow{
 		box-shadow: none;
@@ -215,13 +208,23 @@ textarea{
 		&.big{ .shadow(@accent, 1.75, .6); }
 	}
 }
-button, input[type="submit"], input[type="button"], input[type="reset"]{
+button, input[type="submit"], input[type="button"], input[type="reset"], body a.button, a.btn{
 	.button;
 }
+
+// Inputs
 .input{}
 input:not([type="submit"]):not([type="button"]):not([type="reset"]){
 	.input;
 }
+
+textarea{
+	line-height: @baseline * 1.25;
+	padding-left: @baseline / 4; padding-right: @baseline / 4;
+	height: @baseline * 4.75;
+	border-radius: 3px;
+}
+
 select{
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -300,7 +303,6 @@ select::ms-expand{ display: none; }
 	padding: @baseline / 2;
 	padding-left: @baseline;
 	border-radius: @brad;
-	margin: 0;
 	margin-top: (@baseline / 2);
 	margin-bottom: (@baseline / 1.5);
 	.shadow(@accent, 1, .3);
