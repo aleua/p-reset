@@ -6,71 +6,7 @@
 @import 'p-reset/grid.less';
 @import 'p-reset/reset.less';
 
-
-/**
- * Vars
- */
-
-// Fonts
-@bodyfont: 'Source Sans Pro', sans-serif;
-@titlefont: 'Bree Serif', serif;
-
-// Shades
-@white: #fafafa;
-@lightgray: shade(@white, 3.5%);
-@gray: #ccc;
-@black: #555;
-
-@background: @white;
-@color: @black;
-
-// Colors
-@accent: @bluegray;
-@accentShadow: shade(@accent, 14%);
-@compl: spin(@accent, 30%);
-
-@success: @lightgreen;
-@error: @red;
-@warn: @yellow;
-
-// Material
-@red: #e44;
-@pink: #e38;
-@purple: #93b;
-@blue: #36c;
-@lightblue: #4af;
-@teal: #4b9;
-@green: #5a6;
-@lightgreen: #8c6;
-@yellow: #fc4;
-@orange: #f92;
-@bluegray: #678;
-
-// Sizes
-@basefont: 14px * 1;
-@baseline: @basefont * 1.5;
-
-@x2baseline: @baseline * 2;
-@x3baseline: @baseline * 3;
-@x4baseline: @baseline * 4;
-
-@navheight: @x3baseline;
-
-@pagePadding: @baseline * 6;
-@pagePadding--tablet: @baseline;
-@pagePadding--phone: @baseline / 2;
-
-// Media Queries
-@laptop: ~'(min-width: 900px)';
-@tablet: ~'(max-width: 900px)';
-@phone: ~'(max-width: 600px)';
-
-// Cubic-Bezier
-@cubic-bezier: @cb-material;
-@cb-material: cubic-bezier(.5,0,0,1);
-@cb-shoot: cubic-bezier(0,1,0,1);
-
-@brad: @baseline * 1.25;
+@import 'vars.less';
 
 /**
  * Mixins
