@@ -112,7 +112,7 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 | **Colors** | |
 | .border-(color) | Change the border color of an element. (i.e. '.border-black') |
 | .color-(color) | Change the text color of an element. (i.e. '.color-white') |
-| .bg-(color) | Change the text color of an element. (i.e. '.color-acc') |
+| .bg-(color) | Change the background color of an element. (i.e. '.color-acc') |
 | **Fonts** | |
 | .font-title | Change the element's font to the @titlefont. |
 | .font-body | Change the element's font to the @bodyfont. |

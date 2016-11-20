@@ -24,6 +24,12 @@
 	@media @phone{ margin-left: @pagePadding--phone; margin-right: @pagePadding--phone; }
 }
 
+.transition-delay(@offset: 0; @cnth: 10; @i: 1;) when (@i <= @cnth){
+	@t: 0s + ((@i / 2) / 10) + @offset;
+	&:nth-child(@{i}){ transition-delay: @t; }
+	.transition-delay(@cnth; @off; @i + 1;);
+}
+
 .shadow(@color: @accent; @size: 1; @op: .8; @y: 1;){
 	@sc1: shade(saturate(@color, 75%), 30%);
 	@shadowColor: rgba(red(@sc1), green(@sc1), blue(@sc1), @op);
@@ -214,6 +220,7 @@ select::ms-expand{ display: none; }
 
 .padding{ padding: @baseline; }
 .padding-half{ padding: @baseline / 2; }
+.padding-quarter{ padding: @baseline / 4; }
 
 .padding-sides{ padding-left: @baseline; padding-right: @baseline; }
 .padding-ends{ padding-top: @baseline; padding-bottom: @baseline; }
