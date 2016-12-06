@@ -1,8 +1,6 @@
 /**
  * Imports
  */
-@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700|Bree+Serif';
-
 @import 'p-reset/grid.less';
 @import 'p-reset/reset.less';
 
@@ -24,10 +22,10 @@
 	@media @phone{ margin-left: @pagePadding--phone; margin-right: @pagePadding--phone; }
 }
 
-.transition-delay(@offset: 0; @cnth: 10; @i: 1;) when (@i <= @cnth){
+.transition-delay(@offset:0; @cnth:10; @i:1;) when (@i <= @cnth){
 	@t: 0s + ((@i / 2) / 10) + @offset;
 	&:nth-child(@{i}){ transition-delay: @t; }
-	.transition-delay(@cnth; @off; @i + 1;);
+	.transition-delay(@offset; @cnth; @i + 1;);
 }
 
 .shadow(@color: @accent; @size: 1; @op: .8; @y: 1;){

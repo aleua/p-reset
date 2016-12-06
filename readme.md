@@ -152,10 +152,4 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 - Add text-decoration <a>
 - Add tooltips
 - Add saturation var to .shadow()
-- Add style.less
-	- @import p-reset.less
-	- body{
-		> header{}
-		> main{}
-		> footer{}
-	}
+- Reposition .page-padding and .padding - .padding currently overriding .page-padding
