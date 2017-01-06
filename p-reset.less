@@ -28,12 +28,19 @@
 	.transition-delay(@offset; @cnth; @i + 1;);
 }
 
-.shadow(@color: @accent; @size: 1; @op: .8; @y: 1;){
-	@sc1: shade(saturate(@color, 75%), 30%);
+.shadow(@color: @accent; @size: 1.5; @op: .6; @y: 1;){
+	@sc1: shade(saturate(@color, 50%), 30%);
 	@shadowColor: rgba(red(@sc1), green(@sc1), blue(@sc1), @op);
 	box-shadow+: 0 ((@baseline * (.5 * @size)) * @y) (@baseline * @size) -((@baseline / 2) * @size) @shadowColor;
 }
-.shadow{ .shadow(@accent, 1.5, .6); }
+.shadow{ .shadow(); }
+
+.glow(@color: @accent; @size: 1.5; @op: .6; @y: 1;){
+	@sc1: shade(saturate(@color, 75%), 10%);
+	@shadowColor: rgba(red(@sc1), green(@sc1), blue(@sc1), @op);
+	box-shadow+: 0 ((@baseline * (.5 * @size)) * @y) (@baseline * @size) -((@baseline / 2) * @size) @shadowColor;
+}
+.glow{ .glow(); }
 
 .grid(12);
 .grid(12, (@baseline / 3));
@@ -154,7 +161,11 @@ button, input[type="submit"], input[type="button"], input[type="reset"], body a.
 }
 
 // Inputs
-.input{}
+.input{
+	transition: border-color .3s @cubic-bezier;
+	&:valid{ border-color: @success; }
+	// &:invalid{ border-color: @error; }
+}
 input:not([type="submit"]):not([type="button"]):not([type="reset"]){
 	.input;
 }
@@ -195,7 +206,7 @@ select::ms-expand{ display: none; }
 // Colors
 .gen-color-combos(@color, @name){
 	.border-@{name}{ border: 1px solid @color; }
-	.color-@{name}{ color: @color; }
+	.color-@{name}{ color: @color !important; }
 	.bg-@{name}{ background: @color; }
 }
 .gen-color-combos(@accent, ~'acc');
@@ -233,7 +244,7 @@ select::ms-expand{ display: none; }
 .half-width, .width-50{ width: 50%; }
 
 // Others
-.brad, .b-rad{ border-radius: @brad; }
+.brad, .b-rad, .border-radius{ border-radius: @brad; }
 
 //
 .info, .message{
@@ -249,16 +260,18 @@ select::ms-expand{ display: none; }
 	.shadow(@accent, 1, .3);
 }
 .info, .message, .button{
-	color: @white;
 	&.yes, &.accept, &.success, &.succ{
+		color: @white;
 		border-color: @success;
 		background: @success; .shadow(@success, 1, .3);
 	}
 	&.no, &.cancel, &.error, &.err{
+		color: @white;
 		border-color: @error;
 		background: @error; .shadow(@error, 1, .3);
 	}
 	&.warn, &.warning{
+		color: @white;
 		border-color: @warn;
 		background: @warn; .shadow(@warn, 1, .3);
 	}

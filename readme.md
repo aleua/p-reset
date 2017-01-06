@@ -153,3 +153,6 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 - Add tooltips
 - Add saturation var to .shadow()
 - Reposition .page-padding and .padding - .padding currently overriding .page-padding
+- Add versions to main less file (For a possible future auto-updater)
+- Add Glow mixin
+- Add [:valid] input state
