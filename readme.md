@@ -155,4 +155,6 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 - Reposition .page-padding and .padding - .padding currently overriding .page-padding
 - Add versions to main less file (For a possible future auto-updater)
 - Add Glow mixin
-- Add [:valid] input state
+- Add [:valid] input state (BUG inputs with no extra attr turning green)
+- Add valigncenter/middle
+- Add .size-h1..h6 / .size-title / .text-big / .text-small
