@@ -158,3 +158,5 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 - Add [:valid] input state (BUG inputs with no extra attr turning green)
 - Add valigncenter/middle
 - Add .size-h1..h6 / .size-title / .text-big / .text-small
+- Change @laptop: ~'(min-width: 975px)' to 976px
+	- Test something like ~'(min-width: @tablet + 1)'
