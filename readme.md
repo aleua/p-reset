@@ -41,8 +41,6 @@ So, columns.
 All you need is an element with a `.row-(n)` class (in this case, the default is `.row-12`), and inside, the `.col-(n)` elements.
 In case you need gutters, wrap it all inside a `.gutt`.
 
-# CHECK INFO
-
 
 #### Default Breakpoints
 
@@ -136,9 +134,10 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 | **Width** | |
 | .full-width / .width-100 | Set the element's width to 100%. |
 | .half-width / .width-50 | Set the element's width to 50%. |
-| Border Radius | |
+| **Border Radius** | |
 | .brad / .b-rad | Set the element's border-radius to the value defined in `vars.less` |
-| **.info / .message** | |
+| **Info / Message** | |
+| .info / .message | |
 | .warn / .warning | |
 | .yes / .accept / .success / .succ | |
 | .no / .cancel / .error / .err | |
@@ -146,15 +145,16 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 
 ### Useful Tweaks
 
+
+---
+
+
 #### TODO
 - Footer - Always on bootom fix
-- Remove Headers Accent Colors
-- Add text-decoration <a>
 - Add tooltips
 - Add saturation var to .shadow()
 - Reposition .page-padding and .padding - .padding currently overriding .page-padding
 - Add versions to main less file (For a possible future auto-updater)
-- Add Glow mixin
 - Add [:valid] input state (BUG inputs with no extra attr turning green)
 - Add valigncenter/middle
 - Add .size-h1..h6 / .size-title / .text-big / .text-small
