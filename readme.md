@@ -151,9 +151,10 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 
 #### TODO
 - Footer - Always on bootom fix
+- Reposition .page-padding and .padding - .padding currently overriding .page-padding
+- Reposition buttons / inputs - .button.yes:hover currently overriding .button:hover
 - Add tooltips
 - Add saturation var to .shadow()
-- Reposition .page-padding and .padding - .padding currently overriding .page-padding
 - Add versions to main less file (For a possible future auto-updater)
 - Add [:valid] input state (BUG inputs with no extra attr turning green)
 - Add valigncenter/middle
