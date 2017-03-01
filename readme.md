@@ -151,14 +151,8 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 
 #### TODO
 - Footer - Always on bootom fix
-- Reposition .page-padding and .padding - .padding currently overriding .page-padding
-- Reposition buttons / inputs - .button.yes:hover currently overriding .button:hover
 - Add tooltips
 - Add saturation var to .shadow()
-- Add versions to main less file (For a possible future auto-updater)
 - Add [:valid] input state (BUG inputs with no extra attr turning green)
-- Add valigncenter/middle
-- Add .size-h1..h6 / .size-title / .text-big / .text-small
-- Change @laptop: ~'(min-width: 975px)' to 976px
-	- Test something like ~'(min-width: @tablet + 1)'
+- Test something like ~'(min-width: @tablet + 1)'
 - Change table styles
