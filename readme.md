@@ -156,3 +156,4 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 - Add [:valid] input state (BUG inputs with no extra attr turning green)
 - Test something like ~'(min-width: @tablet + 1)'
 - Change table styles
+- Change the god damn .info class to something else
