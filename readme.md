@@ -158,6 +158,7 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 - Test something like ~'(min-width: @tablet + 1)'
 - Change table styles
 - Change the god damn .info class to something else
+- Fix button .big modifier
 - Consider adding
 	a, a:link, a:visited, a:focus, a:hover, a:active{ color: inherit; }
 	:not(nav){
