@@ -166,3 +166,4 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 			text-decoration: none;
 		}
 	}
+- Add WordPress Gallery Support
