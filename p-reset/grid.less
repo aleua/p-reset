@@ -6,9 +6,9 @@
 .grid(@cols: 12; @gutt: 0;) when (@gutt = 0){
 	.row-@{cols}{
 		.clearfix;
-		.grid-default(@cols);
-		.grid-responsive(@tablet, sm, @cols);
-		.grid-responsive(@phone, xs, @cols);
+		.grid-default(@cols, @gutt);
+		.grid-responsive(@tablet, sm, @cols, @gutt);
+		.grid-responsive(@phone, xs, @cols, @gutt);
 	}
 }
 
@@ -21,9 +21,9 @@
 			overflow: auto;
 			/* TEST */ overflow-x: visible; /* TEST */
 			.clearfix;
-			.grid-default-gutt(@cols, @gutter);
-			.grid-responsive-gutt(@tablet, sm, @cols, @gutter);
-			.grid-responsive-gutt(@phone, xs, @cols, @gutter);
+			.grid-default(@cols, @gutter);
+			.grid-responsive(@tablet, sm, @cols, @gutter);
+			.grid-responsive(@phone, xs, @cols, @gutter);
 		}
 	}
 }
@@ -40,44 +40,35 @@
  * Generate columns
  */
 
-// Without Gutters
-.gen-cols(@prefix; @cols; @i: 1;) when (@i <= @cols){
-	> .col-@{prefix}-@{i}{
-		width: (100% / @cols) * @i;
-	}
-	.gen-cols(@prefix, @cols, @i + 1);
-}
-
-.grid-default(@cols: @cols; @i: 1;) when (@i <= @cols){
+.grid-default(@cols: @cols; @gutter; @i: 1;) when (@i <= @cols){
 	> .col-@{i}{
-		width: (100% / @cols) * @i;
+		.set-col-size(@cols, @gutter, @i);
 	}
-	.grid-default(@cols, @i + 1);
+	.grid-default(@cols, @gutter, @i + 1);
 }
 
-.grid-responsive(@device; @prefix; @cols){
-	@media @device{ .gen-cols(@prefix, @cols); }
+.grid-responsive(@device; @prefix; @cols; @gutter){
+	@media @device{ .gen-cols(@prefix, @cols, @gutter); }
 }
 
-// With Gutters
-.gen-cols-gutt(@prefix; @cols; @gutter; @i: 1;) when (@i <= @cols){
+.gen-cols(@prefix; @cols; @gutter; @i: 1;) when (@i <= @cols){
 	> .col-@{prefix}-@{i}{
-		width: (100% / @cols) * @i;
-		padding-left: @gutter; padding-right: @gutter;
+		.set-col-size(@cols, @gutter, @i);
 	}
-	.gen-cols-gutt(@prefix, @cols, @gutter, @i + 1);
+	.gen-cols(@prefix, @cols, @gutter, @i + 1);
 }
 
-.grid-default-gutt(@cols: @cols; @gutter; @i: 1;) when (@i <= @cols){
-	> .col-@{i}{
-		width: (100% / @cols) * @i;
-		padding-left: @gutter; padding-right: @gutter;
-	}
-	.grid-default-gutt(@cols, @gutter, @i + 1);
+/**
+ * Mixins
+ */
+
+.set-col-size(@cols; @gutter; @i){
+	width: (100% / @cols) * @i;
+	.has-gutter(@gutter);
 }
 
-.grid-responsive-gutt(@device; @prefix; @cols; @gutter;){
-	@media @device{ .gen-cols-gutt(@prefix, @cols, @gutter); }
+.has-gutter(@gutter) when (@gutter > 0){
+	padding-left: @gutter; padding-right: @gutter;
 }
 
 [class*=row]{ > [class*=col]{ float: left; }}
