@@ -40,10 +40,12 @@
  * Generate columns
  */
 
-.grid-default(@cols: @cols; @gutter; @i: 1;) when (@i <= @cols){
+.grid-default(@cols: @cols; @gutter; @i: 0;) when (@i <= @cols){
 	> .col-@{i}{
 		.set-col-size(@cols, @gutter, @i);
 	}
+	> .col-push-@{i}{ .grid-push(@cols, @i); }
+	> .col-pull-@{i}{ .grid-pull(@cols, @i); }
 	.grid-default(@cols, @gutter, @i + 1);
 }
 
@@ -51,10 +53,12 @@
 	@media @device{ .gen-cols(@prefix, @cols, @gutter); }
 }
 
-.gen-cols(@prefix; @cols; @gutter; @i: 1;) when (@i <= @cols){
+.gen-cols(@prefix; @cols; @gutter; @i: 0;) when (@i <= @cols){
 	> .col-@{prefix}-@{i}{
 		.set-col-size(@cols, @gutter, @i);
 	}
+	> .col-@{prefix}-push-@{i}, > .col-push-@{prefix}-@{i}{ .grid-push(@cols, @i); }
+	> .col-@{prefix}-pull-@{i}, > .col-pull-@{prefix}-@{i}{ .grid-pull(@cols, @i); }
 	.gen-cols(@prefix, @cols, @gutter, @i + 1);
 }
 
@@ -71,4 +75,18 @@
 	padding-left: @gutter; padding-right: @gutter;
 }
 
-[class*=row]{ > [class*=col]{ float: left; }}
+
+.grid-push(@cols; @i){
+	left: ((100% / @cols) * @i);
+	right: auto;
+}
+.grid-pull(@cols; @i){
+	right: ((100% / @cols) * @i);
+	left: auto;
+}
+
+[class*=row]{
+	> [class*=col]{ float: left; }
+	> [class*=push-],
+	> [class*=pull-]{ position: relative; z-index: 1; }
+}
