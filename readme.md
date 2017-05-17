@@ -85,7 +85,7 @@ In case you need gutters, wrap it all inside a `.gutt`.
 	</div>
 
 
-Note that the idea behind (P)Reset is to **tweak it to better serve your needs**.
+Note that the idea behind (P)reset is to **tweak it to better serve your needs**.
 
 So if, for example:
 - 12 columns are not enough;
