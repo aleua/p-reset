@@ -1,59 +1,8 @@
-// Generate columns --------------------------------------------------------------------------------
-// Without Gutters
-.gen-cols(@prefix; @cols; @i: 1;) when (@i <= @cols){
-	> .col-@{prefix}-@{i}{
-		width: (100% / @cols) * @i;
-	}
-	.gen-cols(@prefix, @cols, @i + 1);
-}
-.grid-default(@cols: @cols; @i: 1;) when (@i <= @cols){
-	> .col-@{i}{
-		width: (100% / @cols) * @i;
-	}
-	.grid-default(@cols, @i + 1);
-}
-// With Gutters
-.gen-cols-gutt(@prefix; @cols; @gutter; @i: 1;) when (@i <= @cols){
-	> .col-@{prefix}-@{i}{
-		width: (100% / @cols) * @i;
-		padding-left: @gutter; padding-right: @gutter;
-	}
-	.gen-cols-gutt(@prefix, @cols, @gutter, @i + 1);
-}
-.grid-default-gutt(@cols: @cols; @gutter; @i: 1;) when (@i <= @cols){
-	> .col-@{i}{
-		width: (100% / @cols) * @i;
-		padding-left: @gutter; padding-right: @gutter;
-	}
-	.grid-default-gutt(@cols, @gutter, @i + 1);
-}
+/**
+ * (P)reset - Grid
+ */
 
-//
-
-[class*=row]{ > [class*=col]{ float: left; }}
-
-// Generate columns inside the media queries -------------------------------------------------------
-// No Gutters
-.grid-responsive(@device; @prefix; @cols){
-	@media @device{ .gen-cols(@prefix, @cols); }
-}
-// Gutters
-.grid-responsive-gutt(@device; @prefix; @cols; @gutter;){
-	@media @device{ .gen-cols-gutt(@prefix, @cols, @gutter); }
-}
-
-// Row Clearfix ------------------------------------------------------------------------------------
-
-.clearfix{
-	&:before, &:after{
-		content: ' ';
-		display: table;
-	}
-	&:after{ clear: both; }
-}
-
-// Default - No Gutters ----------------------------------------------------------------------------
-
+// Default - No Gutters
 .grid(@cols: 12; @gutt: 0;) when (@gutt = 0){
 	.row-@{cols}{
 		.clearfix;
@@ -63,14 +12,14 @@
 	}
 }
 
-// Gutters -----------------------------------------------------------------------------------------
+// Gutters
 .grid(@cols: 12; @gutt: 0;) when (@gutt > 0){
 	@gutter: @gutt;
 	.gutt{
-		// padding-left: @gutter; padding-right: @gutter;
 		.row-@{cols}{
 			margin-left: @gutter / -1; margin-right: @gutter / -1;
 			overflow: auto;
+			/* TEST */ overflow-x: visible; /* TEST */
 			.clearfix;
 			.grid-default-gutt(@cols, @gutter);
 			.grid-responsive-gutt(@tablet, sm, @cols, @gutter);
@@ -78,3 +27,57 @@
 		}
 	}
 }
+
+.clearfix{
+	&:before, &:after{
+		content: ' ';
+		display: table;
+	}
+	&:after{ clear: both; }
+}
+
+/**
+ * Generate columns
+ */
+
+// Without Gutters
+.gen-cols(@prefix; @cols; @i: 1;) when (@i <= @cols){
+	> .col-@{prefix}-@{i}{
+		width: (100% / @cols) * @i;
+	}
+	.gen-cols(@prefix, @cols, @i + 1);
+}
+
+.grid-default(@cols: @cols; @i: 1;) when (@i <= @cols){
+	> .col-@{i}{
+		width: (100% / @cols) * @i;
+	}
+	.grid-default(@cols, @i + 1);
+}
+
+.grid-responsive(@device; @prefix; @cols){
+	@media @device{ .gen-cols(@prefix, @cols); }
+}
+
+// With Gutters
+.gen-cols-gutt(@prefix; @cols; @gutter; @i: 1;) when (@i <= @cols){
+	> .col-@{prefix}-@{i}{
+		width: (100% / @cols) * @i;
+		padding-left: @gutter; padding-right: @gutter;
+	}
+	.gen-cols-gutt(@prefix, @cols, @gutter, @i + 1);
+}
+
+.grid-default-gutt(@cols: @cols; @gutter; @i: 1;) when (@i <= @cols){
+	> .col-@{i}{
+		width: (100% / @cols) * @i;
+		padding-left: @gutter; padding-right: @gutter;
+	}
+	.grid-default-gutt(@cols, @gutter, @i + 1);
+}
+
+.grid-responsive-gutt(@device; @prefix; @cols; @gutter;){
+	@media @device{ .gen-cols-gutt(@prefix, @cols, @gutter); }
+}
+
+[class*=row]{ > [class*=col]{ float: left; }}
