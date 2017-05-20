@@ -44,6 +44,7 @@
 	> .col-@{i}{
 		.set-col-size(@cols, @gutter, @i);
 	}
+	> .col-offset-@{i}{ .grid-offset(@cols, @i); }
 	> .col-push-@{i}{ .grid-push(@cols, @i); }
 	> .col-pull-@{i}{ .grid-pull(@cols, @i); }
 	.grid-default(@cols, @gutter, @i + 1);
@@ -57,6 +58,7 @@
 	> .col-@{prefix}-@{i}{
 		.set-col-size(@cols, @gutter, @i);
 	}
+	> .col-@{prefix}-offset-@{i}{ .grid-offset(@cols, @i); }
 	> .col-@{prefix}-push-@{i}, > .col-push-@{prefix}-@{i}{ .grid-push(@cols, @i); }
 	> .col-@{prefix}-pull-@{i}, > .col-pull-@{prefix}-@{i}{ .grid-pull(@cols, @i); }
 	.gen-cols(@prefix, @cols, @gutter, @i + 1);
@@ -76,6 +78,9 @@
 }
 
 
+.grid-offset(@cols; @i){
+	margin-left: ((100% / @cols) * @i);
+}
 .grid-push(@cols; @i){
 	left: ((100% / @cols) * @i);
 	right: auto;
