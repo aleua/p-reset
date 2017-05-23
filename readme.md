@@ -164,3 +164,4 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 		}
 	}
 - Add WordPress Gallery Support
+- Move nav styles from 'p-reset.less' to 'style.less'
