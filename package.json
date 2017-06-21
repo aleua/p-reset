@@ -3,9 +3,6 @@
   "version": "1.1.0",
   "description": "",
   "main": "p-reset.less",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/p-realinho/p-reset.git"

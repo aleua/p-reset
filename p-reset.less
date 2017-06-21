@@ -153,7 +153,7 @@ ul, ol{
 .brad, .b-rad, .border-radius{ border-radius: @brad; }
 
 //
-.info, .message{
+.alert, .message{
 	background: @accent;
 	color: @white;
 	font-size: @basefont * 1.25;
@@ -180,7 +180,7 @@ ul, ol{
 	}
 }
 
-.info, .message, .button{
+.alert, .message, .button{
 	&.yes, &.accept, &.success, &.succ{
 		color: @white;
 		border-color: @success;
@@ -220,7 +220,6 @@ textarea, select{
 	margin-bottom: @baseline / 2;
 	padding-left: @baseline / 2; padding-right: @baseline / 2;
 	border-radius: @brad;
-	&.big{ font-size: @basefont * 1.25; font-weight: 300; line-height: @baseline * 2.25; }
 	&.small{
 		font-size: @basefont / 1.5;
 		line-height: @baseline / 1.2;
@@ -229,6 +228,7 @@ textarea, select{
 	}
 	&.big{
 		font-size: @basefont * 1.5;
+		font-weight: 300;
 		line-height: @baseline * 2.5;
 		padding-left: @baseline; padding-right: @baseline;
 	}
@@ -261,7 +261,7 @@ textarea, select{
 		&.big{ .shadow(@accent, 1.75, .6); }
 	}
 }
-button, input[type="submit"], input[type="button"], input[type="reset"], body a.button, a.btn{
+button, input[type="submit"], input[type="button"], input[type="reset"], body a.button, body a.btn{
 	.button;
 }
 

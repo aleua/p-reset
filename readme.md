@@ -155,7 +155,6 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 - Add saturation var to .shadow()
 - Test something like ~'(min-width: @tablet + 1)'
 - Change table styles
-- Change the god damn .info class to something else
 - Consider adding
 	a, a:link, a:visited, a:focus, a:hover, a:active{ color: inherit; }
 	:not(nav){
@@ -166,6 +165,5 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 - Add WordPress Gallery Support
 - Move nav styles from 'p-reset.less' to 'style.less'
 - Fix Slick overflow-x
-- Remove duplicate .button.big class
-- Add missing 'body' before 'a.btn' @L264
 - Add mixin for buttons / inputs
+- Add more font/text size options (big/bigger)
