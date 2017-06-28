@@ -153,7 +153,10 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 - Footer - Always on bootom fix
 - Add tooltips
 - Add saturation var to .shadow()
-- Test something like ~'(min-width: @tablet + 1)'
+- Media Queries
+	- Test something like ~'(min-width: @tablet + 1)'
+	- Add more breakpoints
+	- Change tablet-hide / laptop-hide
 - Change table styles
 - Consider adding
 	a, a:link, a:visited, a:focus, a:hover, a:active{ color: inherit; }
