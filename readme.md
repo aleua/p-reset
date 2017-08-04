@@ -165,6 +165,7 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 			text-decoration: none;
 		}
 	}
+- Add mixin for all a states
 - Add WordPress Gallery Support
 - Move nav styles from 'p-reset.less' to 'style.less'
 - Fix Slick overflow-x

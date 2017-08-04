@@ -54,9 +54,21 @@
 @pagePadding--phone: @baseline / 2;
 
 // Media Queries
-@laptop: ~'(min-width: 901px)';
-@tablet: ~'(max-width: 900px)';
-@phone: ~'(max-width: 600px)';
+@mobile-s:  ~'(max-width: 320px)';
+@mobile-m:  ~'(max-width: 375px)';
+@mobile-l:  ~'(max-width: 425px)';
+@mobile:    ~'(max-width: 425px)';
+@phone:     @mobile;
+
+@tablet-up: ~'(min-width: 425px)';
+@tablet:    ~'(max-width: 768px)';
+
+@laptop-up: ~'(min-width: 768px)';
+@laptop:    ~'(max-width: 1024px)';
+@laptop-l:  ~'(max-width: 1440px)';
+
+@4k-up:     ~'(min-width: 2560px)';
+@4k:        ~'(max-width: 2560px)';
 
 // Cubic-Bezier
 @cubic-bezier: @cb-material;
