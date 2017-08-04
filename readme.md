@@ -155,8 +155,6 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 - Add saturation var to .shadow()
 - Media Queries
 	- Test something like ~'(min-width: @tablet + 1)'
-	- Add more breakpoints
-	- Change tablet-hide / laptop-hide
 - Change table styles
 - Consider adding
 	a, a:link, a:visited, a:focus, a:hover, a:active{ color: inherit; }
@@ -165,9 +163,12 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 			text-decoration: none;
 		}
 	}
-- Add mixin for all a states
+- Add mixin for all a states [Docs](http://lesscss.org/features/#detached-rulesets-feature).
 - Add WordPress Gallery Support
+- Fix WordPress Admin Bar + nav top on mobile
 - Move nav styles from 'p-reset.less' to 'style.less'
 - Fix Slick overflow-x
-- Add mixin for buttons / inputs
 - Add more font/text size options (big/bigger)
+- Refactor inputs/buttons
+	- Implement &:extend(.class all);
+	- Add mixin. [Docs](http://lesscss.org/features/#detached-rulesets-feature).
