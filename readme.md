@@ -172,3 +172,4 @@ So only the `col-` size is required, instead of the mobile (col-xs-) size.
 - Refactor inputs/buttons
 	- Implement &:extend(.class all);
 	- Add mixin. [Docs](http://lesscss.org/features/#detached-rulesets-feature).
+- Add ratio/container classes.
