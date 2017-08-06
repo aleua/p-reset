@@ -1,0 +1,110 @@
+/**
+ * https://bitsofco.de/linting-html-using-css/
+ */
+
+.lint-debug-msg{
+	position: relative;
+	display: block;
+	margin: ~'calc(1.5rem + 20px)' 0;
+	&:before, &:after{
+		background: rgba(0,0,0,.6);
+		color: #fff;
+		font-family: 'Courier New', Courier, monospace;
+		font-size: 1rem;
+		font-weight: bold;
+		line-height: 1.5rem;
+		display: block;
+		width: auto;
+		white-space: pre;
+		position: absolute;
+		padding: 0 .5rem;
+		border-radius: 3px;
+		left: 0;
+	}
+	&:before{ bottom: ~'calc(100% + 10px)'; }
+	&:after{ top: ~'calc(100% + 10px)'; }
+}
+
+.lint-set-debug-msg(@msg){
+	.lint-default;
+    .lint-debug-msg;
+	&:before, &:after{
+		content: @msg;
+	}
+}
+
+.lint-default{ border: 5px solid red !important; }
+
+.lint, &.lint{
+	*[style] {
+		.lint-set-debug-msg('Inline Styles');
+    }
+
+	a:not([href]),
+	a[href="#"],
+	a[href=""],
+	a[href*="javascript:void(0)"] {
+		.lint-set-debug-msg('Faulty or Missing Link Targets');
+
+	}
+
+	img:not([alt]) {
+		.lint-set-debug-msg('Unaccessible Images');
+	}
+
+	img[alt=""] {
+    	.lint-set-debug-msg('Unaccessible Images (skipped)');
+	}
+
+	html:not([lang]),
+	html[lang=""] {
+    	.lint-set-debug-msg('Missing Document Language');
+	}
+
+	meta[charset]:not([charset="UTF-8"]) {
+    	.lint-set-debug-msg('Incorrect Character Set');
+	}
+
+
+	meta[charset="UTF-8"]:not(:first-child) {
+    	.lint-set-debug-msg('Incorrect Character Set (not first)');
+	}
+
+
+	meta[name="viewport"][content*="user-scalable=no"],
+	meta[name="viewport"][content*="maximum-scale"],
+	meta[name="viewport"][content*="minimum-scale"] {
+    	.lint-set-debug-msg('Unaccessible Viewport Attributes');
+	}
+
+	input:not([id]),
+	select:not([id]),
+	textarea:not([id]) {
+    	.lint-set-debug-msg('Unlabelled Form Elements');
+	}
+
+	label:not([for]) {
+    	.lint-set-debug-msg('Unlabelled Form Elements');
+	}
+
+	input:not([name]),
+	select:not([name]),
+	textarea:not([name]) {
+    	.lint-set-debug-msg('Unlabelled Form Elements');
+	}
+
+	form:not([name]):not([id]) {
+    	.lint-set-debug-msg('Unlabelled Form Elements');
+	}
+
+
+	button:empty,
+	a:empty {
+    	.lint-set-debug-msg('Empty Interactive Elements');
+	}
+
+	script[type="text/javascript"],
+	link[rel="stylesheet"][type="text/css"] {
+    	.lint-set-debug-msg('Unnecessary or Deprecated Attributes');
+	}
+}

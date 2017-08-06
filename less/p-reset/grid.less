@@ -3,24 +3,23 @@
  */
 
 // Default - No Gutters
-.grid(@cols: 12; @gutt: 0;) when (@gutt = 0){
+.grid(@cols: 12; @gutter: 0;) when (@gutter = 0){
 	.row-@{cols}{
-		.clearfix;
-		.grid-default(@cols, @gutt);
-		.grid-responsive(@tablet, sm, @cols, @gutt);
-		.grid-responsive(@phone, xs, @cols, @gutt);
+		&:extend(.clearfix all);
+		.grid-default(@cols, @gutter);
+		.grid-responsive(@tablet, sm, @cols, @gutter);
+		.grid-responsive(@phone, xs, @cols, @gutter);
 	}
 }
 
 // Gutters
-.grid(@cols: 12; @gutt: 0;) when (@gutt > 0){
-	@gutter: @gutt;
+.grid(@cols: 12; @gutter: 0;) when (@gutter > 0){
 	.gutt{
 		.row-@{cols}{
-			margin-left: @gutter / -1; margin-right: @gutter / -1;
+			margin-left: -@gutter; margin-right: -@gutter;
 			overflow: auto;
-			/* TEST */ overflow-x: visible; /* TEST */
-			.clearfix;
+			overflow-x: visible;
+			&:extend(.clearfix all);
 			.grid-default(@cols, @gutter);
 			.grid-responsive(@tablet, sm, @cols, @gutter);
 			.grid-responsive(@phone, xs, @cols, @gutter);
